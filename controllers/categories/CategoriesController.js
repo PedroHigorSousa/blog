@@ -39,5 +39,25 @@ route.get('/admin/categories', (request, response) => {
     });
 });
 
+route.post('/categories/delete', (request, response) => {
+    const { id } = request.body;
+
+    if (id != undefined) {
+        if (!isNaN(id)) {
+            CategoryModel.destroy({
+                where: {
+                    id: id
+                }
+            }).then(() => {
+                response.redirect('/admin/categories')
+            })
+        } else {
+            response.redirect('/admin/categories')
+        }
+    } else {
+        response.redirect('/admin/categories')
+    }
+});
+
 
 module.exports = route;
