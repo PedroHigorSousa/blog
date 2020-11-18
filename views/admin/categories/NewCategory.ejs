@@ -1,8 +1,18 @@
 <%- include ('../../parts/head.ejs') %>
 
-<form action="/category/new/register" method="POST">
-    <input type="text" name="titleCategory">
-    <button type="submit">Cadastrar</button>
-</form>
+<div class="conatiner">
+    <hr>
+    <div class="card">
+        <div class="card-title">
+            <h2>Cadastro de categorias</h2>
+        </div>
+        <div class="card-body">
+            <form action="/category/new/register" method="POST">
+                <input type="text" name="titleCategory">
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+</div>
 
 <%- include ('../../parts/footer.ejs') %>
