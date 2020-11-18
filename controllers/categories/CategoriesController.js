@@ -6,8 +6,8 @@ const route = new Router();
 
 const CategoryModel = require('../../models/categories/Category');
 
-route.get('/', (request, response) => {
-    response.render('home');
+route.get('/home', (request, response) => {
+    response.render('home')
 });
 
 route.get('/category/new', (request, response) => {
@@ -23,7 +23,7 @@ route.post('/category/new/register', (request, response) => {
             title: titleCategory,
             slug: slugify(titleCategory)
         }).then(() => {
-            response.redirect('home');
+            response.redirect('/home');
         })
     }
     else {
