@@ -6,6 +6,9 @@ const route = new Router();
 
 const CategoryModel = require('../../models/categories/Category');
 
+route.get('/', (request, response) => {
+    response.render('home');
+});
 
 route.get('/category/new', (request, response) => {
     response.render('admin/categories/NewCategory');
