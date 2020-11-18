@@ -23,12 +23,20 @@ route.post('/category/new/register', (request, response) => {
             title: titleCategory,
             slug: slugify(titleCategory)
         }).then(() => {
-            response.redirect('/home');
+            response.redirect('/admin/categories');
         })
     }
     else {
         response.redirect('/admin/categories/new')
     }
+});
+
+
+route.get('/admin/categories', (request, response) => {
+
+    CategoryModel.findAll().then((categories) => {
+        response.render('admin/categories/index', { categories: categories });
+    });
 });
 
 
