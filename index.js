@@ -24,10 +24,12 @@ const ArticleModel = require('./models/articles/Articles');
 
 // Controllers
 const CategoryController = require('./controllers/categories/CategoriesController');
+const ArticleController = require('./controllers/articles/ArticleController');
 
 
 // Routes
 app.use('/', CategoryController);
+app.use('/', ArticleController)
 
 
 // Server settings
