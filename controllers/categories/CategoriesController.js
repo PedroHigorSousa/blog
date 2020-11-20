@@ -1,4 +1,4 @@
-const { Router, request } = require('express');
+const { Router, request, response } = require('express');
 const slugify = require('slugify');
 
 const route = new Router();
@@ -57,6 +57,42 @@ route.post('/categories/delete', (request, response) => {
     } else {
         response.redirect('/admin/categories')
     }
+});
+
+
+route.get('/admin/categories/edit/:id', (request, response) => {
+    const { id } = request.params;
+
+    if (isNaN(id)) {
+        response.redirect('/admin/categories');
+    }
+
+    CategoryModel.findByPk(id).then(category => {
+        if (category != undefined) {
+            response.render('admin/categories/edit', {
+                category: category
+            })
+        } else {
+            response.redirect('/admin/categories');
+        }
+    })
+});
+
+
+route.post('/categories/update', (request, response) => {
+    const { idCategory, titleCategory } = request.body;
+
+    CategoryModel.update({
+        title: titleCategory,
+        slug: slugify(titleCategory)
+    }, {
+        where: {
+            id: idCategory
+        }
+    }).then(() => {
+        response.redirect('/admin/categories')
+    })
+
 });
 
 
