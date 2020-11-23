@@ -1,0 +1,24 @@
+<%- include ('parts/head.ejs'); %>
+<%- include ('parts/navbar-standart.ejs'); %>
+<section class="section about-me" data-section="section1">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Postagens</h2>
+            <div class="line-dec"></div>
+        </div>
+        <div class="left-image-post">
+            <div class="row">
+                <% articles.forEach(article => { %>
+                <div class="col-md-12">
+                    <div class="right-text">
+                        <h4><%= article.title %></h4>
+                        <div class="white-button">
+                            <a href="#">Ler</a>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+</section>
+<%- include ('parts/footer.ejs'); %>

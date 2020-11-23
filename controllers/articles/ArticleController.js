@@ -65,4 +65,4 @@ routes.post('/admin/delete/article', (request, response) => {
 });
 
 
-module.exports = route;
+module.exports = routes;
