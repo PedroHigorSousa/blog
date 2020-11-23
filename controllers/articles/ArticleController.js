@@ -9,7 +9,7 @@ const ArticleModel = require('../../models/articles/Articles');
 
 
 route.get('/admin/articles', (request, response) => {
-    response.redirect('admin/articles/home.ejs')
+    response.render('admin/articles/home.ejs')
 });
 
 route.get('/admin/articles/new', (request, response) => {
