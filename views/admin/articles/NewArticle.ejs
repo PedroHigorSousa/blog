@@ -1,46 +1,17 @@
 <%- include ('../../parts/head.ejs') %>
 <%- include ('../../parts/menu.ejs') %>
 
-<div class="container">
-    <br>
-    <div class="card">
-        <div class="card-header">
-            <h2>Novo artigo</h2>
-        </div>
-        <div class="card-body">
-            <form action="/articles/register" method="POST">
-                <input class="form-control" type="text" name="titleArticle" placeholder="Título do artigo">
-
-                <br>
-                <textarea name="textAreaArticle" id="article" cols="30" rows="10" class="form-control"
-                    placeholder="Escreva seu artigo"></textarea>
-                <br>
-                <label for="">Categoria</label>
-                <select name="category" id="" class="form-control">
-                    <% categories.forEach((category)=>{ %>
-                    <option value="<%= category.id %>"><%= category.title %></option>
-                    <% }) %>
-                </select>
-                <br>
-                <button class="btn btn-success" type="submit">Cadastrar</button>
-            </form>
-            <br>
-            <a href="/admin/categories"><button class="btn btn-primary">Artigos</button></a>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2><%= article.title %></h2>
+            </div>
+            <div class="card-body">
+                <%= article.body %>
+            </div>
         </div>
     </div>
-</div>
+</body>
 
 <%- include ('../../parts/footer.ejs') %>
-
-<script src="/tinymce/tinymce.min.js"></script>
-<script>
-
-    tinymce.init({
-        language: 'pt_BR',
-        selector: '#article',
-        plugins: [
-            'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
-        ]
-    })
-
-</script>

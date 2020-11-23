@@ -29,7 +29,7 @@ const ArticleController = require('./controllers/articles/ArticleController');
 
 // Routes
 app.use('/', CategoryController);
-app.use('/', ArticleController)
+app.use('/', ArticleController);
 
 
 // Server settings

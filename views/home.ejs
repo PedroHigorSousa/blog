@@ -1,5 +1,26 @@
 <%- include ('parts/head.ejs'); %>
+<%- include ('parts/menuNotAdmin.ejs'); %>
 
-<h1>Hello</h1>
+<h1>Testing</h1>
+
+<section class="list-artilcles">
+    <div class="container">
+        <% articles.forEach(article =>{ %>
+        <br>
+        <div class="card text-center">
+            <div class="card-header">
+                <%= article.category.title %>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><%= article.title %></h5>
+                <a href="/<%= article.slug %>" class="btn btn-primary">Acessar</a>
+            </div>
+            <div class="card-footer text-muted">
+                <%= article.createdAt %>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+</section>
 
 <%- include ('parts/footer.ejs'); %>

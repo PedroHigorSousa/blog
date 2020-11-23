@@ -5,9 +5,20 @@ const route = new Router();
 
 
 const CategoryModel = require('../../models/categories/Category');
+const ArticleModel = require('../../models/articles/Articles');
 
 route.get('/home', (request, response) => {
-    response.render('home')
+
+    ArticleModel.findAll({
+        include: [
+            {
+                model: CategoryModel
+            }
+        ]
+    }).then((articles) => {
+        response.render('home', { articles: articles });
+    });
+
 });
 
 route.get('/category/new', (request, response) => {
