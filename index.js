@@ -26,10 +26,12 @@ const ArticleModel = require('./models/articles/Articles');
 const CategoryController = require('./controllers/categories/CategoriesController');
 const ArticleController = require('./controllers/articles/ArticleController');
 const IndexController = require('./controllers/index/IndexController');
+const IndexAdminController = require('./controllers/admin-panel/indexAdminPanel');
 
 
 // Routes
-app.use('/', IndexController)
+app.use('/', IndexController);
+app.use('/admin', IndexAdminController);
 app.use('/category', CategoryController);
 app.use('/article', ArticleController);
 
